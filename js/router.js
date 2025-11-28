@@ -40,6 +40,7 @@ function router() {
 
 // 초기 실행
 window.addEventListener("load", () => {
+  include("#logo", "components/logo.html");
   include("#nav", "components/nav.html");
 
   router();

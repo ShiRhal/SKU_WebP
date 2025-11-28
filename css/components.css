@@ -1,3 +1,18 @@
+/* Logo */
+.logo-box {
+    padding: 1rem 0;
+}
+
+.logo-box img {
+    width: 140px;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-box a:hover img {
+    opacity: 0.85;
+}
+
 /* 페이지 공용 Header */
 .page-header {
     margin-bottom: 1.5rem;
