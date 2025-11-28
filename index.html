@@ -3,21 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Board Lake</title>
-    <link rel="stylesheet" href="/style.css" />
+    <title>SKU_WebP</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Kakao Map SDK -->
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d380e76f7c8a8ea1b1f7bcc8ec2cde9"></script>
   </head>
 
   <body>
-    <!-- nav.html이 들어가는 곳 -->
-    <div id="nav-root"></div>
 
-    <!-- 페이지 컨텐츠 -->
+    <!-- Left Sidebar nav -->
+    <div id="nav"></div>
+
+    <!-- Main Content -->
     <main id="app"></main>
 
-    <!-- 라우터 -->
-    <script src="/router.js"></script>
+    <!-- Router -->
+    <script src="js/router.js"></script>
 
-    <!-- 카카오맵 SDK (SPA 방식이므로 index.html에 있어야함) -->
-    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9d380e76f7c8a8ea1b1f7bcc8ec2cde9"></script>
   </body>
 </html>
