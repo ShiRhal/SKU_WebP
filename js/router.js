@@ -22,8 +22,8 @@ async function loadPage(page) {
 
     if (exists) {
       const script = document.createElement("script");
+      script.type = "module";
       script.src = scriptPath;
-      script.defer = true;
       document.body.appendChild(script);
     }
 
