@@ -1,4 +1,5 @@
-// 공통 include 함수
+// js/router.js (모듈)
+
 async function include(target, file) {
   try {
     const html = await fetch(file).then(res => res.text());
@@ -14,20 +15,24 @@ async function loadPage(page) {
     const html = await fetch(`pages/${page}.html`).then(res => res.text());
     document.getElementById("app").innerHTML = html;
 
-    // 페이지별 JS 자동 실행
-    const scriptPath = `js/${page}.js`;
-    const exists = await fetch(scriptPath)
-      .then(res => res.ok)
-      .catch(() => false);
+    // 🔹 예전 방식: script 태그 append → 모듈은 한 번만 실행돼서 문제
+    // const scriptPath = `js/${page}.js` ...
 
-    if (exists) {
-      const script = document.createElement("script");
-      script.type = "module";
-      script.src = scriptPath;
-      document.body.appendChild(script);
+    // 🔹 새 방식: 동적 import
+    try {
+      const module = await import(`./${page}.js`);   // /js/router.js 기준 상대경로
+
+      // 페이지 모듈이 initPage를 export하면 매번 호출
+      if (module && typeof module.initPage === "function") {
+        module.initPage();
+      }
+      // initPage 없으면, 그냥 import 시 side-effect만 실행하게 둠
+    } catch (err) {
+      console.info("No JS module for page or import failed:", page, err);
     }
 
   } catch (e) {
+    console.error(e);
     document.getElementById("app").innerHTML = "<h2>404 - Page Not Found</h2>";
   }
 }
@@ -42,7 +47,6 @@ function router() {
 window.addEventListener("load", () => {
   include("#logo", "components/logo.html");
   include("#nav", "components/nav.html");
-
   router();
 });
 
