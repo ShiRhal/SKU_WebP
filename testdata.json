@@ -1,0 +1,158 @@
+{
+  "buildings": {
+    "B_01": {
+      "name": "성결대학교 본관",
+      "image_url": "",
+      "latitude": 37.379859,
+      "longitude": 126.928797,
+      "tag": ["건물"],
+      "floors": {
+        "F1": {
+          "location": "1층",
+          "description": "입구, 안내데스크, 소강당"
+        },
+        "F2": {
+          "location": "2층",
+          "description": "강의실(201~210)"
+        },
+        "F3": {
+          "location": "3층",
+          "description": "교수연구실, 회의실"
+        }
+      }
+    },
+    "B_02": {
+      "name": "학생회관",
+      "image_url": "",
+      "latitude": 37.380200,
+      "longitude": 126.929200,
+      "tag": ["건물", "편의시설"],
+      "floors": {
+        "F1": {
+          "location": "1층",
+          "description": "학생식당, 카페, 학생휴게공간"
+        },
+        "F2": {
+          "location": "2층",
+          "description": "동아리방, 학생지원센터"
+        }
+      }
+    },
+    "B_03": {
+      "name": "도서관",
+      "image_url": "",
+      "latitude": 37.380550,
+      "longitude": 126.927900,
+      "tag": ["건물", "공부"],
+      "floors": {
+        "F1": {
+          "location": "1층",
+          "description": "도서 대출/반납, 열람실"
+        },
+        "F2": {
+          "location": "2층",
+          "description": "전자자료실, 그룹스터디룸"
+        }
+      }
+    }
+  },
+
+  "facilities": {
+    "F_01": {
+      "name": "본관 소강당",
+      "location": "본관 1층",
+      "image_url": "",
+      "latitude": 37.379900,
+      "longitude": 126.928750,
+      "hours": "09:00 ~ 18:00",
+      "description": "소규모 강연 및 행사가 열리는 공간",
+      "category": "기타",
+      "tag": ["행사"],
+      "B_ref": "B_01"
+    },
+    "F_02": {
+      "name": "학생식당",
+      "location": "학생회관 1층",
+      "image_url": "",
+      "latitude": 37.380180,
+      "longitude": 126.929210,
+      "hours": "10:30 ~ 17:00",
+      "description": "학생들이 가장 많이 이용하는 식당",
+      "category": "식당",
+      "tag": ["밥", "가성비"],
+      "B_ref": "B_02"
+    },
+    "F_03": {
+      "name": "카페 브라우닝",
+      "location": "학생회관 1층",
+      "image_url": "",
+      "latitude": 37.380150,
+      "longitude": 126.929250,
+      "hours": "09:00 ~ 18:00",
+      "description": "학생들이 즐겨 찾는 커피 전문점",
+      "category": "카페",
+      "tag": ["커피", "음료"],
+      "B_ref": "B_02"
+    },
+    "F_04": {
+      "name": "도서관 열람실",
+      "location": "도서관 1층",
+      "image_url": "",
+      "latitude": 37.380570,
+      "longitude": 126.927880,
+      "hours": "09:00 ~ 21:00",
+      "description": "조용한 학습 공간 제공",
+      "category": "공부장소",
+      "tag": ["스터디", "열람실"],
+      "B_ref": "B_03"
+    }
+  },
+
+  "cafe": {
+    "C_01": {
+      "name": "아메리카노",
+      "image_url": "",
+      "price": "2500",
+      "description": "진한 원두의 향",
+      "tag": ["커피"]
+    },
+    "C_02": {
+      "name": "카페라떼",
+      "image_url": "",
+      "price": "3200",
+      "description": "부드러운 우유와 커피의 조화",
+      "tag": ["커피", "라떼"]
+    },
+    "C_03": {
+      "name": "초코칩 프라페",
+      "image_url": "",
+      "price": "4200",
+      "description": "달콤한 초코음료",
+      "tag": ["초코"]
+    }
+  },
+
+  "diner": {
+    "D_01": {
+      "name": "돈가스",
+      "image_url": "",
+      "price": "5000",
+      "description": "바삭한 돈가스 정식",
+      "tag": ["정식", "인기"]
+    },
+    "D_02": {
+      "name": "제육볶음",
+      "image_url": "",
+      "price": "5500",
+      "description": "매콤달콤 제육덮밥",
+      "tag": ["덮밥"]
+    },
+    "D_03": {
+      "name": "비빔밥",
+      "image_url": "",
+      "price": "4500",
+      "description": "가벼운 한 끼",
+      "tag": ["건강식"]
+    }
+  }
+}
