@@ -1,90 +1,141 @@
 import { fs } from "./firebaseConfig.js";
 import {
   collection,
+  getDocs,
   doc,
-  getDoc,
-  getDocs
+  query,
+  where
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// router.js에서 호출하는 엔트리
 export function initPage() {
+
   const $ = (id) => document.getElementById(id);
   const output = $("result");
 
-  // ---------------------
-  // ① Firestore 연결 확인
-  // ---------------------
-  $("checkConnection").addEventListener("click", async () => {
-    try {
-      // buildings 컬렉션에 간단히 접근해보는 용도
-      await getDocs(collection(fs, "buildings"));
-      output.textContent = "✔ Firestore 연결 성공!";
-    } catch (e) {
-      output.textContent = "❌ Firestore 연결 실패: " + e;
-    }
-  });
+  const print = (data) => {
+    output.textContent = (typeof data === "string")
+      ? data
+      : JSON.stringify(data, null, 2);
+  };
 
-  // ---------------------
-  // ② 건물 전체 읽기
-  // ---------------------
+  // -----------------------------------------------------
+  // ① 전체 건물 조회 (image_url 포함)
+  // -----------------------------------------------------
   $("readBuildings").addEventListener("click", async () => {
     try {
       const snap = await getDocs(collection(fs, "buildings"));
-      const data = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-      output.textContent = JSON.stringify(data, null, 2);
-    } catch (e) {
-      output.textContent = "건물 읽기 오류: " + e;
+
+      const list = snap.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+      print(list);
+
+    } catch (err) {
+      print("건물 조회 오류: " + err);
     }
   });
 
-  // ---------------------
-  // ③ 편의시설 전체 읽기
-  // ---------------------
+  // -----------------------------------------------------
+  // ② 특정 건물의 floors 조회 (필드 없음 → ID만 반환)
+  // -----------------------------------------------------
+  $("readFloors").addEventListener("click", async () => {
+    const bId = $("buildingIdInput").value.trim();
+    if (!bId) return print("건물 ID 입력 (예: B_01)");
+
+    try {
+      const snap = await getDocs(collection(fs, "buildings", bId, "floors"));
+
+      if (snap.empty) return print("층 데이터 없음");
+
+      const floors = snap.docs.map(f => ({
+        id: f.id
+      }));
+
+      print(floors);
+
+    } catch (err) {
+      print("floors 조회 오류: " + err);
+    }
+  });
+
+  // -----------------------------------------------------
+  // ③ 특정 층의 Room 조회 (name, location)
+  // -----------------------------------------------------
+  $("readRooms").addEventListener("click", async () => {
+    const bId = $("buildingIdInput").value.trim();
+    const fId = $("floorIdInput").value.trim();
+
+    if (!bId || !fId) return print("건물 ID(B_01), 층 ID(F0) 모두 입력");
+
+    try {
+      const snap = await getDocs(
+        collection(fs, "buildings", bId, "floors", fId, "Room")
+      );
+
+      if (snap.empty) return print("Room 데이터 없음");
+
+      const rooms = snap.docs.map(r => ({
+        id: r.id,
+        ...r.data()
+      }));
+
+      print(rooms);
+
+    } catch (err) {
+      print("Room 조회 오류: " + err);
+    }
+  });
+
+  // -----------------------------------------------------
+  // ④ 전체 편의시설 조회
+  // -----------------------------------------------------
   $("readFacilities").addEventListener("click", async () => {
     try {
       const snap = await getDocs(collection(fs, "facilities"));
-      const data = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
-      output.textContent = JSON.stringify(data, null, 2);
-    } catch (e) {
-      output.textContent = "편의시설 읽기 오류: " + e;
+
+      const list = snap.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+      print(list);
+
+    } catch (err) {
+      print("편의시설 조회 오류: " + err);
     }
   });
 
-  // ---------------------------
-  // ④ 특정 문서 읽기 (컬렉션/ID)
-  // ---------------------------
-  // 입력 예: buildings/B_01 , facilities/F_01
-  $("readPath").addEventListener("click", async () => {
-    const path = $("pathInput").value.trim();
+  // -----------------------------------------------------
+  // ⑤ tag 검색 (array-contains)
+  // -----------------------------------------------------
+  $("searchTag").addEventListener("click", async () => {
+    const keyword = $("tagInput").value.trim();
+    const target = $("tagTarget").value; // buildings or facilities
 
-    if (!path) {
-      output.textContent = "경로를 입력하세요. (예: buildings/B_01)";
-      return;
-    }
-
-    const [col, id] = path.split("/");
-
-    if (!col || !id) {
-      output.textContent =
-        "경로 형식이 잘못되었습니다. (예: buildings/B_01, facilities/F_01)";
-      return;
-    }
+    if (!keyword) return print("검색할 태그 입력");
 
     try {
-      const snap = await getDoc(doc(fs, col, id));
-
-      if (!snap.exists()) {
-        output.textContent = "❌ 문서가 존재하지 않습니다.";
-        return;
-      }
-
-      output.textContent = JSON.stringify(
-        { id: snap.id, ...snap.data() },
-        null,
-        2
+      const q = query(
+        collection(fs, target),
+        where("tag", "array-contains", keyword)
       );
-    } catch (e) {
-      output.textContent = "문서 읽기 오류: " + e;
+
+      const snap = await getDocs(q);
+
+      const result = snap.docs.map(d => ({
+        id: d.id,
+        ...d.data()
+      }));
+
+      if (result.length === 0) return print("해당 태그 문서 없음");
+
+      print(result);
+
+    } catch (err) {
+      print("tag 검색 오류: " + err);
     }
   });
+
 }
