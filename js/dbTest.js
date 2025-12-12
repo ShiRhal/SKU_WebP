@@ -3,7 +3,7 @@ import {
   collection,
   doc,
   getDoc,
-  getDocs
+  getDocs,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // router.js에서 호출하는 엔트리
@@ -11,9 +11,8 @@ export function initPage() {
   const $ = (id) => document.getElementById(id);
   const output = $("result");
 
-  // ---------------------
-  // ① Firestore 연결 확인
-  // ---------------------
+  // Firestore 연결 확인
+
   $("checkConnection").addEventListener("click", async () => {
     try {
       // buildings 컬렉션에 간단히 접근해보는 용도

@@ -2,7 +2,7 @@
 
 async function include(target, file) {
   try {
-    const html = await fetch(file).then(res => res.text());
+    const html = await fetch(file).then((res) => res.text());
     document.querySelector(target).innerHTML = html;
   } catch (e) {
     console.error("Include Error:", target, file);
@@ -12,15 +12,13 @@ async function include(target, file) {
 // 페이지 로더
 async function loadPage(page) {
   try {
-    const html = await fetch(`pages/${page}.html`).then(res => res.text());
+    const html = await fetch(`pages/${page}.html`).then((res) => res.text());
     document.getElementById("app").innerHTML = html;
 
-    // 🔹 예전 방식: script 태그 append → 모듈은 한 번만 실행돼서 문제
-    // const scriptPath = `js/${page}.js` ...
-
-    // 🔹 새 방식: 동적 import
+    // 예전 방식: script 태그 append → 모듈은 한 번만 실행돼서 문제
+    // 새 방식: 동적 import
     try {
-      const module = await import(`./${page}.js`);   // /js/router.js 기준 상대경로
+      const module = await import(`./${page}.js`); // /js/router.js 기준 상대경로
 
       // 페이지 모듈이 initPage를 export하면 매번 호출
       if (module && typeof module.initPage === "function") {
@@ -30,7 +28,6 @@ async function loadPage(page) {
     } catch (err) {
       console.info("No JS module for page or import failed:", page, err);
     }
-
   } catch (e) {
     console.error(e);
     document.getElementById("app").innerHTML = "<h2>404 - Page Not Found</h2>";
