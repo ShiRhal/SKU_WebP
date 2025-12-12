@@ -31,6 +31,7 @@
   padding: 16px;
   background: #f9fafb;
   overflow-y: auto;
+  cursor: default;
 }
 
 .cafe-index h3 {
@@ -56,6 +57,7 @@
   gap: 10px;
   margin: 25px auto;
   flex-wrap: wrap;
+  cursor: default;
 }
 
 .cat-btn {
@@ -121,11 +123,13 @@
   font-size: 18px;
   font-weight: 700;
   color: #4a3d27;
+  cursor: default;
 }
 
 .cafe-category-title {
   margin: 40px 0 20px;
   text-align: center;
+  cursor: default;
 }
 
 .category-en {

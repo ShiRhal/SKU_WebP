@@ -1,4 +1,3 @@
-// js/cafe.js
 import { fs } from "./firebaseConfig.js";
 import {
   collection,
@@ -50,13 +49,6 @@ function setupCategoryButtons() {
   });
 }
 
-// router.js가 호출하는 함수
-export function initPage() {
-  console.log("cafe.js initPage()");
-  setupCategoryButtons();
-  loadCafeMenus();
-}
-
 const categoryMap = {
   all: { en: "ALL", ko: "전체 메뉴" },
   coffee: { en: "COFFEE & LATTE", ko: "커피 & 라떼" },
@@ -75,3 +67,9 @@ document.querySelectorAll(".cat-btn").forEach((btn) => {
     document.getElementById("category-ko").textContent = categoryMap[cat].ko;
   });
 });
+
+export function initPage() {
+  console.log("cafe.js initPage()");
+  setupCategoryButtons();
+  loadCafeMenus();
+}
