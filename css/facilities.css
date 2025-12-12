@@ -93,6 +93,16 @@
 }
 
 /* =========================
+   결과 요약 문구
+========================= */
+.facility-result-info {
+  margin: 12px 0 16px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* =========================
    결과 카드 영역
 ========================= */
 .facility-result {
@@ -173,13 +183,4 @@
   background: #e5f1ff;
   color: #1d4ed8;
   font-size: 0.75rem;
-}
-
-/* =========================
-   반응형 (선택)
-========================= */
-@media (max-width: 768px) {
-  .facility-card-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
 }
