@@ -1,16 +1,47 @@
+<link rel="stylesheet" href="../css/cafe.css" />
+
 <header class="page-header">
-    <h1>캠퍼스 카페 안내</h1>
+  <h1>캠퍼스 카페 메뉴</h1>
 </header>
 
-<section class="page-body">
-    <p>캠퍼스 내 카페 위치 및 정보를 제공하는 페이지입니다.</p>
-    <p>향후 카페 리스트, 위치, 영업시간 등의 정보가 추가될 예정입니다.</p>
+<!-- 카페 사진, 운영정보 -->
+<section class="cafe-layout">
+  <div class="cafe-photo">
+    <img
+      src="https://raw.githubusercontent.com/ShiRhal/SKU_WebP/refs/heads/img/cafe.png"
+      alt="카페 사진"
+    />
+  </div>
+
+  <div class="cafe-index">
+    <h3>카페 운영 정보</h3>
+    <ul>
+      <li><strong>운영시간</strong> : 09:00 ~ 17:00</li>
+      <li><strong>위치</strong> : 학생회관 1층</li>
+      <li><strong>휴무</strong> : 주말 및 공휴일</li>
+      <li><strong>결제</strong> : 카드 / 모바일 결제 가능</li>
+    </ul>
+  </div>
+</section>
+<br />
+<br />
+<section class="cafe-category-title">
+  <h2 id="category-en" class="category-en">ALL</h2>
+</section>
+<br />
+
+<!-- 카테고리 버튼 -->
+<section class="cafe-category">
+  <button class="cat-btn active" data-category="all">전체</button>
+  <button class="cat-btn" data-category="coffee">커피 & 라떼</button>
+  <button class="cat-btn" data-category="ade">에이드 / 아이스티</button>
+  <button class="cat-btn" data-category="smoothie">스무디 / 쉐이크</button>
+  <button class="cat-btn" data-category="tea">티</button>
 </section>
 
-<footer class="page-footer">
-    <p>
-        <a href="https://www.sungkyul.ac.kr/" target="_blank">SKU Site</a>
-    </p>
-    
-    <p>Created By 신승민, 000, 000 | 성결대학교</p>
-</footer>
+<!-- 🔥 카테고리 제목 (버튼 클릭 시 변경됨) -->
+
+<!-- 메뉴 카드 -->
+<section id="cafe-menu-container" class="cafe-menu-container"></section>
+
+<script src="../js/cafeTitle.js"></script>

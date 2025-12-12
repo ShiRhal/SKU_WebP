@@ -11,7 +11,8 @@ function loadKakaoMapSDK() {
 
     const script = document.createElement("script");
     script.onload = () => resolve();
-    script.src = "//dapi.kakao.com/v2/maps/sdk.js?appkey=9d380e76f7c8a8ea1b1f7bcc8ec2cde9&autoload=false";
+    script.src =
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=9d380e76f7c8a8ea1b1f7bcc8ec2cde9&autoload=false";
     document.head.appendChild(script);
   });
 }
@@ -39,13 +40,10 @@ function initMap() {
   }, 200);
 }
 
-// 🔹 router.js에서 매번 호출할 엔트리 함수
+// router.js에서 매번 호출할 엔트리 함수
 export async function initPage() {
   await loadKakaoMapSDK();
   kakao.maps.load(() => {
     initMap();
   });
 }
-
-// ⛔ 이 줄은 삭제해야 함!
-// initHomePage();
