@@ -1,29 +1,77 @@
 <header class="page-header">
-    <h1>Firestore DB Test</h1>
+  <h1>Firebase DB Test</h1>
 </header>
 
 <section class="page-body">
 
-    <button id="checkConnection">① Firestore 연결 확인</button>
-    <button id="readBuildings">② 건물 전체 불러오기</button>
-    <button id="readFacilities">③ 편의시설 전체 불러오기</button>
+  <!-- ------------------------------ -->
+  <!-- ① 전체 건물 조회 -->
+  <!-- ------------------------------ -->
+  <div class="block">
+    <h3>① 전체 건물 조회</h3>
+    <button id="readBuildings">건물 전체 조회</button>
+  </div>
 
-    <hr>
+  <hr>
 
-    <div>
-        <input id="pathInput" placeholder="예: buildings/B_01" style="width: 250px;">
-        <button id="readPath">④ 특정 문서 읽기</button>
+  <!-- ------------------------------ -->
+  <!-- ② 특정 건물의 floors 조회 -->
+  <!-- ------------------------------ -->
+  <div class="block">
+    <h3>② 특정 건물의 floors 조회</h3>
+    <input id="buildingIdInput" placeholder="건물 ID (예: B_01)" />
+    <button id="readFloors">층 목록 불러오기</button>
+  </div>
+
+  <!-- ------------------------------ -->
+  <!-- ③ 특정 층의 Room 조회 -->
+  <!-- ------------------------------ -->
+  <div class="block">
+    <h3>③ 특정 층의 Room 조회</h3>
+    <input id="floorIdInput" placeholder="층 ID (예: F0)" />
+    <button id="readRooms">Room 전체 조회</button>
+  </div>
+
+  <hr>
+
+  <!-- ------------------------------ -->
+  <!-- ④ 편의시설 전체 조회 -->
+  <!-- ------------------------------ -->
+  <div class="block">
+    <h3>④ 편의시설 전체 조회</h3>
+    <button id="readFacilities">편의시설 전체 조회</button>
+  </div>
+
+  <hr>
+
+  <!-- ------------------------------ -->
+  <!-- ⑤ tag 검색 -->
+  <!-- ------------------------------ -->
+  <div class="block">
+    <h3>⑤ tag 배열로 검색</h3>
+
+    <div class="search-row">
+      <input id="tagInput" placeholder="태그 입력 (예: 카페, 공부, 건물)" />
+      <select id="tagTarget">
+        <option value="buildings">buildings</option>
+        <option value="facilities">facilities</option>
+      </select>
+      <button id="searchTag">검색</button>
     </div>
+  </div>
 
-    <hr>
+  <hr>
 
-    <pre id="result">결과 출력 영역</pre>
+  <!-- ------------------------------ -->
+  <!-- 결과 출력 영역 -->
+  <!-- ------------------------------ -->
+  <pre id="result" class="result-box">결과가 여기에 표시됩니다.</pre>
+
 </section>
 
 <footer class="page-footer">
-    <p>
-        <a href="https://www.sungkyul.ac.kr/" target="_blank">SKU Site</a>
-    </p>
-
-    <p>Created By 신승민, 000, 000 | 성결대학교</p>
+  <p>
+    <a href="https://www.sungkyul.ac.kr/" target="_blank">SKU Site</a>
+  </p>
+  <p>Created By 신승민 | 성결대학교</p>
 </footer>
