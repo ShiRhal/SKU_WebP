@@ -27,6 +27,29 @@
     line-height: 1.6;
 }
 
+.page-body .block {
+    margin-bottom: 20px;
+}
+
+.page-body input,
+.page-body select {
+    padding: 6px;
+    margin-right: 8px;
+}
+
+.page-body button {
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.result-box {
+    background: #f7f7f7;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    white-space: pre-wrap;
+}
+
 /* 페이지 공용 Footer */
 .page-footer {
     margin-top: 2rem;

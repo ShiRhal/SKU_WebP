@@ -1,0 +1,254 @@
+/* ================================
+   캠퍼스 페이지 레이아웃
+================================ */
+
+/* 상단 레이아웃: 지도 + 색인표 나란히 */
+.campus-layout {
+    width: 75%;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* 왼쪽 지도 영역 */
+.campus-map {
+    flex: 2;
+}
+
+.campus-map img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    display: block;
+}
+
+/* 오른쪽 색인표 영역 */
+.campus-index {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 16px;
+    background: #f9fafb;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.campus-index h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+/* 색인 버튼들 */
+.building-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.building-index button {
+    padding: 6px 10px;
+    border-radius: 16px;
+    border: 1px solid #d0d7e2;
+    background: #eef2f7;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.building-index button:hover {
+    background: #d9e4ff;
+}
+
+.building-index button.active {
+    background: #1f6feb;
+    color: #fff;
+    border-color: #1f6feb;
+}
+
+/* ================================
+   공통 섹션 제목
+================================ */
+.section-title {
+    margin: 24px 0 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* ================================
+   건물 상세 정보 박스
+================================ */
+.building-detail-section {
+    margin-top: 24px;
+}
+
+.building-detail-box {
+    margin-top: 8px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.building-detail-content {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.building-detail-image {
+    width: 260px;
+    max-width: 40%;
+}
+
+.building-detail-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.building-detail-image .no-image {
+    width: 100%;
+    height: 160px;
+    border-radius: 10px;
+    border: 1px dashed #d1d5db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+}
+
+.building-detail-text h2 {
+    margin: 0 0 8px 0;
+}
+
+/* 태그 칩 */
+.tag-list {
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag-chip {
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: #e5f1ff;
+    color: #1d4ed8;
+    font-size: 0.8rem;
+}
+
+/* ================================
+   가로 스크롤 카드 목록
+================================ */
+
+.campus-card-section {
+    margin-top: 24px;
+}
+
+.building-card-list {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+/* 카드 하나 */
+.building-card {
+    min-width: 220px;
+    max-width: 260px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.building-card-image {
+    width: 100%;
+    height: 130px;
+    overflow: hidden;
+}
+
+.building-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.building-card-body {
+    padding: 10px 12px;
+}
+
+.building-card-body h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* 선택된 카드 */
+.building-card.active {
+    outline: 3px solid #1f6feb;
+}
+
+/* 이미지 없는 카드 */
+.building-card-image .no-image {
+    width: 100%;
+    height: 100%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 0.85rem;
+}
+
+/* ---------- 층별 Room 표 ---------- */
+
+.floor-room-section {
+    margin-top: 24px;
+}
+
+/* 층 단위 블럭 */
+.floor-block {
+    margin-bottom: 24px;
+}
+
+/* 층 제목 */
+.floor-title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+/* 표 컨테이너: width 조절 추가 */
+.room-table {
+    width: 50%;
+    /* 화면 절반만 사용 */
+    min-width: 300px;
+    /* 너무 작아지지 않도록 최소 폭 지정 */
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    table-layout: fixed;
+    margin-bottom: 12px;
+
+    /* 중앙 정렬 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 셀 스타일 */
+.room-table th,
+.room-table td {
+    border: 1px solid #e5e7eb;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+/* 헤더 */
+.room-table th {
+    background: #f3f4f6;
+    font-weight: 600;
+}
