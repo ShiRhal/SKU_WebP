@@ -1,0 +1,185 @@
+/* =========================
+   상단 컨트롤 영역
+========================= */
+.facilities-control {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* ---------- 검색 ---------- */
+.facility-search input {
+  width: 100%;
+  max-width: 360px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+/* ---------- 건물 카드 목록 ---------- */
+.facility-building-cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.facility-building-cards::-webkit-scrollbar {
+  height: 6px;
+}
+
+.facility-building-cards::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+/* campus 카드 스타일 재사용 */
+.building-card {
+  min-width: 220px;
+  max-width: 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.building-card.active {
+  outline: 3px solid #1f6feb;
+}
+
+.building-card-image {
+  height: 120px;
+}
+
+.building-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.building-card-body {
+  padding: 10px 12px;
+}
+
+.building-card-body h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ---------- 필터 버튼 ---------- */
+.facility-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.facility-filters button {
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1px solid #d0d7e2;
+  background: #eef2f7;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.facility-filters button.active {
+  background: #1f6feb;
+  color: #fff;
+  border-color: #1f6feb;
+}
+
+/* =========================
+   결과 카드 영역
+========================= */
+.facility-result {
+  margin-top: 24px;
+}
+
+.facility-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ---------- 편의시설 카드 ---------- */
+.facility-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+}
+
+.facility-image {
+  height: 160px;
+}
+
+.facility-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.facility-image .no-image {
+  height: 100%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* ---------- 카드 내용 ---------- */
+.facility-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.facility-body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.facility-location {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.facility-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #374151;
+}
+
+/* ---------- 태그 ---------- */
+.tag-list {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag-chip {
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #e5f1ff;
+  color: #1d4ed8;
+  font-size: 0.75rem;
+}
+
+/* =========================
+   반응형 (선택)
+========================= */
+@media (max-width: 768px) {
+  .facility-card-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
