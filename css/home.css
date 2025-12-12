@@ -1,10 +1,84 @@
-/* KakaoMap */
+/* ===== 전체 레이아웃 (지도 + 색인) ===== */
+.campus-layout {
+  width: 75%;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* ===== 지도 영역 ===== */
+.campus-map {
+  flex: 2;
+}
 
 #map {
-  width: 50%;
-  height: 400px;
+  width: 100%;
+  height: 450px;
   border-radius: 12px;
   background: #ddd;
-  margin-top: 1rem;
   border: 2px solid #1e88e5;
+}
+
+/* ===== 색인 영역 ===== */
+.campus-index {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  background: #f9fafb;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.campus-index h3 {
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+/* ===== 색인 버튼 ===== */
+.building-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.building-index button {
+  padding: 6px 10px;
+  border-radius: 16px;
+  border: 1px solid #d0d7e2;
+  background: #eef2f7;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.building-index button:hover {
+  background: #d9e4ff;
+}
+
+.building-index button.active {
+  background: #1f6feb;
+  color: #fff;
+  border-color: #1f6feb;
+}
+
+.infowindow-content {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+div[data-testid="bubble"] {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+div[data-testid="bubble"] * {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+.index-cursor {
+  cursor: default;
 }

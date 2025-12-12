@@ -3,7 +3,6 @@
 </header>
 
 <section class="page-body">
-
   <!-- ------------------------------ -->
   <!-- ① 전체 건물 조회 -->
   <!-- ------------------------------ -->
@@ -12,7 +11,7 @@
     <button id="readBuildings">건물 전체 조회</button>
   </div>
 
-  <hr>
+  <hr />
 
   <!-- ------------------------------ -->
   <!-- ② 특정 건물의 floors 조회 -->
@@ -32,7 +31,7 @@
     <button id="readRooms">Room 전체 조회</button>
   </div>
 
-  <hr>
+  <hr />
 
   <!-- ------------------------------ -->
   <!-- ④ 편의시설 전체 조회 -->
@@ -42,7 +41,7 @@
     <button id="readFacilities">편의시설 전체 조회</button>
   </div>
 
-  <hr>
+  <hr />
 
   <!-- ------------------------------ -->
   <!-- ⑤ tag 검색 -->
@@ -60,13 +59,23 @@
     </div>
   </div>
 
-  <hr>
+  <hr />
+  <!-- ------------------------------ -->
+  <!-- ⑥ tag로 좌표(lat/lng) 테스트 -->
+  <!-- ------------------------------ -->
+  <div class="block">
+    <h3>⑥ tag로 좌표(lat/lng) 테스트</h3>
 
+    <div class="search-row">
+      <input id="testLatLngTag" placeholder="태그 입력 (예: 도서관, 주차)" />
+      <button id="testLatLngBtn">좌표 테스트 실행</button>
+    </div>
+  </div>
+  <hr />
   <!-- ------------------------------ -->
   <!-- 결과 출력 영역 -->
   <!-- ------------------------------ -->
   <pre id="result" class="result-box">결과가 여기에 표시됩니다.</pre>
-
 </section>
 
 <footer class="page-footer">

@@ -3,16 +3,34 @@
 </header>
 
 <section class="page-body">
-  <p>캠퍼스에 오신 것을 환영합니다!</p>
+  <!-- 맵 + 색인 2단 레이아웃 -->
+  <div class="campus-layout">
+    <!-- 왼쪽: 지도 -->
+    <div class="campus-map">
+      <div id="map"></div>
+    </div>
 
-  <!-- 지도 표시 영역 -->
-  <div id="map"></div>
+    <!-- 오른쪽: 색인표 -->
+    <div class="campus-index">
+      <h3 class="index-cursor">색인</h3>
+      <div id="buildingIndex" class="building-index">
+        <button class="index-btn" data-tag="주차">주차장</button>
+        <button class="index-btn" data-tag="어린이집">어린이집</button>
+        <button class="index-btn" data-tag="체육 시설">체육 시설</button>
+        <button class="index-btn" data-tag="도서관">도서관</button>
+        <button class="index-btn" data-tag="편의점">매점</button>
+        <button class="index-btn" data-tag="복사">인쇄</button>
+        <button class="index-btn" data-tag="식당">학식당</button>
+        <button class="index-btn" data-tag="카페">카페</button>
+        <button class="index-btn" data-tag="건물">건물</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer class="page-footer">
   <p>
     <a href="https://www.sungkyul.ac.kr/" target="_blank">SKU Site</a>
   </p>
-
   <p>Created By 신승민, 김영헌, 김혜민 | 성결대학교</p>
 </footer>

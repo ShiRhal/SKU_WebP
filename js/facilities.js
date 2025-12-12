@@ -6,7 +6,6 @@ import {
 
 /* ==============================
    전역 상태
-================================ */
 const state = {
     facilities: [],
     buildings: [],
@@ -17,7 +16,6 @@ const state = {
 
 /* ==============================
    초기 진입
-================================ */
 export async function initPage() {
     await loadData();
     renderBuildingCards();
@@ -29,7 +27,6 @@ initPage();
 
 /* ==============================
    데이터 로드
-================================ */
 async function loadData() {
     const [facilitySnap, buildingSnap] = await Promise.all([
         getDocs(collection(fs, "facilities")),
@@ -53,7 +50,6 @@ async function loadData() {
 
 /* ==============================
    건물 카드 (토글)
-================================ */
 function renderBuildingCards() {
     const el = document.getElementById("buildingCardList");
 
@@ -85,7 +81,6 @@ function renderBuildingCards() {
 
 /* ==============================
    필터 버튼
-================================ */
 const FILTERS = [
     "휴식 공간",
     "학업 시설",
@@ -120,7 +115,6 @@ function renderFilterButtons() {
 
 /* ==============================
    태그 검색
-================================ */
 const searchInput = document.getElementById("tagSearchInput");
 if (searchInput) {
     searchInput.addEventListener("input", e => {
@@ -131,7 +125,6 @@ if (searchInput) {
 
 /* ==============================
    결과 카드 + 결과 요약 렌더링
-================================ */
 function renderFacilityCards() {
     const gridEl = document.getElementById("facilityCardGrid");
     const infoEl = document.getElementById("facilityResultInfo");

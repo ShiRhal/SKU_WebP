@@ -1,5 +1,3 @@
-// js/router.js (모듈)
-
 async function include(target, file) {
   try {
     const html = await fetch(file).then((res) => res.text());
@@ -15,10 +13,8 @@ async function loadPage(page) {
     const html = await fetch(`pages/${page}.html`).then((res) => res.text());
     document.getElementById("app").innerHTML = html;
 
-    // 예전 방식: script 태그 append → 모듈은 한 번만 실행돼서 문제
-    // 새 방식: 동적 import
     try {
-      const module = await import(`./${page}.js`); // /js/router.js 기준 상대경로
+      const module = await import(`./${page}.js`);
 
       // 페이지 모듈이 initPage를 export하면 매번 호출
       if (module && typeof module.initPage === "function") {
