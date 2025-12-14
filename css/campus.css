@@ -261,3 +261,82 @@
 .index-cursor {
   cursor: default;
 }
+
+/* ================================
+   📱 Mobile (Campus Page)
+================================ */
+@media (max-width: 600px) {
+
+  /* 상단 레이아웃: 세로 스택 + 중앙 정렬 */
+  .campus-layout {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 캠퍼스 맵(이미지) 중앙 */
+  .campus-map {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .campus-map img {
+    max-width: 360px;
+    width: 100%;
+  }
+
+  /* 색인 영역 중앙 */
+  .campus-index {
+    width: 100%;
+    max-width: 360px;
+    margin-top: 16px;
+  }
+
+  /* 색인 버튼 중앙 정렬 */
+  .building-index {
+    justify-content: center;
+  }
+
+  /* ================================
+     건물 상세 박스
+  ================================ */
+
+  .building-detail-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .building-detail-image {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .tag-list {
+    justify-content: center;
+  }
+
+  /* ================================
+     카드 목록 (횡 스크롤 유지)
+  ================================ */
+
+  .building-card-list {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  /* ================================
+     층별 Room 표
+  ================================ */
+
+  .room-table {
+    width: 100%;
+    max-width: 360px;
+    min-width: unset;
+  }
+
+  .floor-title {
+    font-size: 1.3rem;
+  }
+}

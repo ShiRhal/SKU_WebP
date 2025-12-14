@@ -187,3 +187,46 @@
   color: #1d4ed8;
   font-size: 0.75rem;
 }
+
+/* =================================================
+   📱 모바일 반응형 (600px 이하)
+================================================= */
+@media (max-width: 600px) {
+
+  /* 검색창 전체 폭 */
+  .facility-search input {
+    max-width: 100%;
+  }
+
+  /* 건물 카드 중앙 정렬 */
+  .facility-building-cards {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  /* 필터 버튼 중앙 정렬 */
+  .facility-filters {
+    justify-content: center;
+  }
+
+  .facility-filters button {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  /* 결과 요약 문구 중앙 */
+  .facility-result-info {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  /* 결과 카드 1열 */
+  .facility-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* 이미지 비율 보정 */
+  .facility-image {
+    height: 180px;
+  }
+}

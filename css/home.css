@@ -1,18 +1,29 @@
+/* =========================
+   HOME 페이지 전용
+   (layout.css 침범 ❌)
+========================= */
+
 /* ===== 전체 레이아웃 (지도 + 색인) ===== */
 .campus-layout {
-  width: 75%;
   display: flex;
   gap: 24px;
   align-items: flex-start;
+
+  /* ❗ width 고정 제거 */
+  max-width: 1200px;
+  margin: 0 auto; /* 가운데 정렬 */
 }
 
 /* ===== 지도 영역 ===== */
 .campus-map {
   flex: 2;
+  display: flex;
+  justify-content: center; /* 지도 중앙 */
 }
 
 #map {
   width: 100%;
+  max-width: 800px;
   height: 450px;
   border-radius: 12px;
   background: #ddd;
@@ -32,7 +43,7 @@
 
 .campus-index h3 {
   margin-top: 0;
-  margin-bottom: 0px;
+  margin-bottom: 8px;
 }
 
 /* ===== 색인 버튼 ===== */
@@ -61,24 +72,39 @@
   border-color: #1f6feb;
 }
 
-.infowindow-content {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-
-div[data-testid="bubble"] {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-
+/* ===== 카카오 인포윈도우 스타일 제거 ===== */
+.infowindow-content,
+div[data-testid="bubble"],
 div[data-testid="bubble"] * {
   border: none !important;
   box-shadow: none !important;
   background: transparent !important;
 }
 
-.index-cursor {
-  cursor: default;
+/* =========================
+   📱 모바일 반응형
+========================= */
+@media (max-width: 768px) {
+  .campus-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .campus-map {
+    width: 100%;
+  }
+
+  #map {
+    height: 320px;
+  }
+
+  .campus-index {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 16px;
+  }
+
+  .building-index {
+    justify-content: center;
+  }
 }
